@@ -3,18 +3,52 @@ function removeTransition(e) {
     e.target.classList.remove('playing');
 }
 
-function playSound(e){
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+
+function playSound(key) {
+    const audio = document.querySelector(`audio[data-key="${key}"]`);
+    const drum = document.querySelector(`div[data-key="${key}"]`);
     if (!audio) return;
 
-    key.classList.add('playing');
+    drum.classList.add('playing');
     audio.currentTime = 0;
     audio.play();
 }
 
+function playSoundFromKeyEvent(e) {
+    playSound(e.keyCode);
+}
+
+
+function playSoundFromClick(key) {
+    playSound(key);
+}
+
+
+
 const keys = Array.from(document.querySelectorAll('.key'));
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-window.addEventListener('keydown', playSound);
+window.addEventListener('keydown', playSoundFromKeyEvent);
+window.addEventListener('onclick', playSound);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

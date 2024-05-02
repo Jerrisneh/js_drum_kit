@@ -1,6 +1,6 @@
 html {
     font-size: 10px;
-    background: url('../assets/strawberry-field_bg_svg.svg') bottom center;
+    background: url('../assets/background.png');
     background-size: cover;
   }
   
@@ -19,6 +19,7 @@ html {
   }
   
   .key {
+    cursor: pointer;
     border: .4rem solid black;
     border-radius: .5rem;
     margin: 1rem;
